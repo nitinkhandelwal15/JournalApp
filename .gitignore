@@ -28,3 +28,12 @@ target/
 /nbbuild/
 /dist/
 /nbdist/
+
+
+echo "# JournalApp" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/nitinkhandelwal15/JournalApp.git
+git push -u origin main
