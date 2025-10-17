@@ -1,5 +1,6 @@
 package com.nitinkhandelwal.JournalApp.controller;
 
+import com.nitinkhandelwal.JournalApp.cache.AppCache;
 import com.nitinkhandelwal.JournalApp.entity.User;
 import com.nitinkhandelwal.JournalApp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class AdminController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private AppCache appCache;
+
     @GetMapping("/all-users")
     public ResponseEntity<?> getAllUsers(){
         List<User> all = userService.getAll();
@@ -31,7 +35,10 @@ public class AdminController {
         userService.saveAdmin(user);
     }
 
-
+    @GetMapping("clear-app-cache")
+    public void clearAppCache(){
+        appCache.init();
+    }
 
 
 }
